@@ -15,14 +15,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
     vim.cmd [[packadd packer.nvim]]
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-    augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-    augroup end
-]]
-
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
@@ -47,6 +39,7 @@ return packer.startup(function(use)
     use { "windwp/nvim-autopairs", commit = "fa6876f832ea1b71801c4e481d8feca9a36215ec" }
     -- Code commenting
     use { "numToStr/Comment.nvim", commit = "2c26a00f32b190390b664e56e32fd5347613b9e2" }
+    use { "JoosepAlviste/nvim-ts-context-commentstring", commit = "88343753dbe81c227a1c1fd2c8d764afb8d36269" }
     -- File tree
     use { "kyazdani42/nvim-tree.lua", commit = "bdb6d4a25410da35bbf7ce0dbdaa8d60432bc243" }
     -- File tree icons
@@ -74,6 +67,7 @@ return packer.startup(function(use)
     use { "saadparwaiz1/cmp_luasnip", commit = "a9de941bcbda508d0a45d28ae366bb3f08db2e36" }
     use { "hrsh7th/cmp-nvim-lsp", commit = "affe808a5c56b71630f17aa7c38e15c59fd648a8" }
     use { "hrsh7th/cmp-nvim-lua", commit = "d276254e7198ab7d00f117e88e223b4bd8c02d21" }
+    use { "hrsh7th/cmp-nvim-lsp-signature-help", commit = "007dd2740d9b70f2688db01a39d6d25b7169cd57" }
     -- Code snippets
     use { "L3MON4D3/LuaSnip", commit = "79b2019c68a2ff5ae4d732d50746c901dd45603a" }
     use { "rafamadriz/friendly-snippets", commit = "d27a83a363e61009278b6598703a763ce9c8e617" }
@@ -90,6 +84,8 @@ return packer.startup(function(use)
     use { "lewis6991/gitsigns.nvim", commit = "c18e016864c92ecf9775abea1baaa161c28082c3" }
     -- TMUX
     use { "alexghergh/nvim-tmux-navigation", commit = "0a084d7c2f73f4a0df9ae25c9e9dcfd18808b3ed" }
+    -- Doxygen
+    use { "vim-scripts/DoxygenToolkit.vim", commit = "afd8663d36d2ec19d26befdb10e89e912d26bbd3" }
 
     -- Automatically set up your configuration after cloning packer.nvim
     if PACKER_BOOTSTRAP then
