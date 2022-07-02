@@ -58,6 +58,12 @@ return packer.startup(function(use)
     use { "lewis6991/impatient.nvim", commit = "969f2c5c90457612c09cf2a13fee1adaa986d350" }
     -- Visual indentation helpers
     use { "lukas-reineke/indent-blankline.nvim", commit = "6177a59552e35dfb69e1493fd68194e673dc3ee2" }
+    -- Repeat last plugin command
+    use { "tpope/vim-repeat", commit = "24afe922e6a05891756ecf331f39a1f6743d3d5a" }
+    -- Quickly jump to some label
+    use { "ggandor/leap.nvim", commit = "b51c4bc051ab54f2694a24cb4f5f808f665cddf1" }
+    -- Add surrounding characters
+    use { "tpope/vim-surround", commit = "bf3480dc9ae7bea34c78fbba4c65b4548b5b1fea" }
     -- Custom colorscheme
     use { "tobi2001/darkplus.nvim", commit = "c19c4bc3cb813c15d95ac96b90926913b3d13c20" }
     -- Code completion
@@ -86,6 +92,9 @@ return packer.startup(function(use)
     use { "alexghergh/nvim-tmux-navigation", commit = "0a084d7c2f73f4a0df9ae25c9e9dcfd18808b3ed" }
     -- Doxygen
     use { "vim-scripts/DoxygenToolkit.vim", commit = "afd8663d36d2ec19d26befdb10e89e912d26bbd3" }
+    -- Debugging
+    use { "mfussenegger/nvim-dap", commit = "f4a3be57f61893cffa1e22aa5e1e7bded495fcf2" }
+    use { "rcarriga/nvim-dap-ui", commit = "d33b905770f9c674468b0b83bed3aeab41cf9bb0" }
 
     -- Automatically set up your configuration after cloning packer.nvim
     if PACKER_BOOTSTRAP then
