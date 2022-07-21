@@ -11,7 +11,7 @@ end
 dap.adapters.cppdbg = {
     id = 'cppdbg',
     type = 'executable',
-    command = '/home/tobias/Downloads/cpp/extension/debugAdapters/bin/OpenDebugAD7',
+    command = '/home/q549677/.apps/vscode-cpptools-v1.10.8/extension/debugAdapters/bin/OpenDebugAD7',
 }
 dap.configurations.cpp = {
     {
@@ -22,7 +22,8 @@ dap.configurations.cpp = {
         program = function()
             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
         end,
-        cwd = '${workspaceFolder}',
+        --cwd = '${workspaceFolder}',
+        cwd = '/home/q549677/workspace/ddad',
         stopOnEntry = false,
     },
 }

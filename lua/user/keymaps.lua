@@ -21,10 +21,11 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 
 -- Close buffers
-keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
+keymap("n", "<S-q>", "<cmd>BDelete! this<CR>", opts)
 
 -- Remove trailing whitespaces
-keymap("n", "<leader>t", "<cmd>%s/\\s\\+$//e<cr>", opts)
+--keymap("n", "<leader>t", "<cmd>%s/\\s\\+$//e<cr>", opts)
+keymap("n", "<leader>t", "<cmd>StripWhitespace<cr>", opts)
 
 -- Better paste
 keymap("v", "p", '"_dP', opts)

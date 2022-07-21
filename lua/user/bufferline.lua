@@ -5,8 +5,8 @@ end
 
 bufferline.setup {
     options = {
-        close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
-        right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
+        close_command = "lua require('close_buffers').delete({ type = %d })", -- can be a string | function, see "Mouse actions"
+        right_mouse_command = "lua require('close_buffers').delete({ type = %d })", -- can be a string | function, see "Mouse actions"
         offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
         separator_style = "slant", -- | "thick" | "thin" | { 'any', 'any' },
     },

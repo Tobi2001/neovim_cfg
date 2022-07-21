@@ -34,20 +34,20 @@ return packer.startup(function(use)
     -- Package manager
     use { "wbthomason/packer.nvim", commit = "00ec5adef58c5ff9a07f11f45903b9dbbaa1b422" }
     -- Helpful lua functions
-    use { "nvim-lua/plenary.nvim", commit = "968a4b9afec0c633bc369662e78f8c5db0eba249" }
+    use { "nvim-lua/plenary.nvim"}
     -- Automatic pair insertion
     use { "windwp/nvim-autopairs", commit = "fa6876f832ea1b71801c4e481d8feca9a36215ec" }
     -- Code commenting
     use { "numToStr/Comment.nvim", commit = "2c26a00f32b190390b664e56e32fd5347613b9e2" }
     use { "JoosepAlviste/nvim-ts-context-commentstring", commit = "88343753dbe81c227a1c1fd2c8d764afb8d36269" }
     -- File tree
-    use { "kyazdani42/nvim-tree.lua", commit = "bdb6d4a25410da35bbf7ce0dbdaa8d60432bc243" }
+    use { "kyazdani42/nvim-tree.lua", commit = "0f96e32326a842798b6b8e638a91464521e4ef71" }
     -- File tree icons
     use { "kyazdani42/nvim-web-devicons", commit = "8d2c5337f0a2d0a17de8e751876eeb192b32310e" }
     -- Top level bufferline
     use { "akinsho/bufferline.nvim", commit = "c78b3ecf9539a719828bca82fc7ddb9b3ba0c353" }
     -- Better buffer closing
-    use { "moll/vim-bbye", commit = "25ef93ac5a87526111f43e5110675032dbcacf56" }
+    use { 'kazhala/close-buffers.nvim'}
     -- Bottom level status line
     use { "nvim-lualine/lualine.nvim", commit = "3362b28f917acc37538b1047f187ff1b5645ecdd" }
     -- Terminal window toggle
@@ -84,6 +84,10 @@ return packer.startup(function(use)
     use { "RRethy/vim-illuminate", commit = "c82e6d04f27a41d7fdcad9be0bce5bb59fcb78e5" }
     -- Telescope
     use { "nvim-telescope/telescope.nvim", commit = "d96eaa914aab6cfc4adccb34af421bdd496468b0" }
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+    use {'nvim-telescope/telescope-ui-select.nvim' }
+
+
     -- Treesitter
     use { "nvim-treesitter/nvim-treesitter", commit = "518e27589c0463af15463c9d675c65e464efc2fe" }
     -- Git
@@ -95,6 +99,12 @@ return packer.startup(function(use)
     -- Debugging
     use { "mfussenegger/nvim-dap", commit = "f4a3be57f61893cffa1e22aa5e1e7bded495fcf2" }
     use { "rcarriga/nvim-dap-ui", commit = "d33b905770f9c674468b0b83bed3aeab41cf9bb0" }
+    -- Markdown preview
+    use({ "iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end, commit = "02cc3874738bc0f86e4b91f09b8a0ac88aef8e96"})
+
+    use { 'pwntester/octo.nvim' }
+
+    use { 'ntpeters/vim-better-whitespace'}
 
     -- Automatically set up your configuration after cloning packer.nvim
     if PACKER_BOOTSTRAP then

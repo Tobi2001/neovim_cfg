@@ -24,11 +24,12 @@ vim.opt.scrolloff = 8                           -- Scroll already before reachin
 vim.opt.sidescrolloff = 8                       -- Scroll already before reaching the end (horizontally)
 vim.opt.laststatus = 3                          -- Show the last status messages
 vim.opt.showcmd = false                         -- disable command output in GUI
+vim.opt.colorcolumn = "120"                     -- set line length marker
 
 -- Editor
 vim.opt.fileencoding = "utf-8"                  -- the encoding written to a file
 vim.opt.wildmode = "longest:full,full"          -- wildemenu behavior
-vim.opt.list = true                             -- show special chars
+vim.opt.list = false                             -- show special chars
 vim.opt.listchars = "trail: ,tab:>•"            -- special chars to show
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 0                        -- so that `` is visible in markdown files

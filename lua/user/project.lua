@@ -3,12 +3,12 @@ if not status_ok then
     return
 end
 project.setup({
-
+    manual_mode = true,
     -- detection_methods = { "lsp", "pattern" }
     detection_methods = { "pattern" },
 
     -- patterns used to detect root dir, when **"pattern"** is in detection_methods
-    patterns = { ".git", "Makefile", "package.json" },
+    patterns = { "WORKSPACE" },
 })
 
 local tele_status_ok, telescope = pcall(require, "telescope")

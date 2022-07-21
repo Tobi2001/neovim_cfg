@@ -3,8 +3,8 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "lir" },
     callback = function()
         vim.cmd [[
-            nnoremap <silent> <buffer> q :close<CR> 
-            set nobuflisted 
+            nnoremap <silent> <buffer> q :close<CR>
+            set nobuflisted
         ]]
     end,
 })
@@ -34,16 +34,16 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
     end,
 })
 
--- Hide trailing whitespaces during edit
-local whitespace = vim.api.nvim_create_augroup("whitespace", {clear = true})
-vim.api.nvim_create_autocmd("InsertEnter", {
-    pattern = "*",
-    command = "set nolist",
-    group = whitespace,
-})
-vim.api.nvim_create_autocmd("InsertLeave", {
-    pattern = "*",
-    command = "set list",
-    group = whitespace,
-})
+---- Hide trailing whitespaces during edit
+--local whitespace = vim.api.nvim_create_augroup("whitespace", {clear = true})
+--vim.api.nvim_create_autocmd("InsertEnter", {
+--    pattern = "*",
+--    command = "set nolist",
+--    group = whitespace,
+--})
+--vim.api.nvim_create_autocmd("InsertLeave", {
+--    pattern = "*",
+--    command = "set list",
+--    group = whitespace,
+--})
 

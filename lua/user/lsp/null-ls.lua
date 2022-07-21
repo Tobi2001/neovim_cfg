@@ -9,9 +9,9 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup {
     debug = false,
     sources = {
-        formatting.uncrustify.with({
-            extra_args = { "-c", "/home/tobias/.config/uncrustify/code_style.cfg" }
-        }),
+--        formatting.uncrustify.with({
+--            extra_args = { "-c", "/home/tobias/.config/uncrustify/code_style.cfg" }
+--        }),
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
