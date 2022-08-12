@@ -5,11 +5,10 @@ end
 
 local servers = {
     "sumneko_lua",
---     "pyright",
-     "bashls",
---     "jsonls",
---     "yamlls",
+    "pyright",
+    "bashls",
     "clangd",
+    "html"
 }
 
 lsp_installer.setup()
@@ -44,3 +43,4 @@ for _, server in pairs(servers) do
 
     lspconfig[server].setup(opts)
 end
+

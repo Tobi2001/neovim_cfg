@@ -34,7 +34,7 @@ return packer.startup(function(use)
     -- Package manager
     use { "wbthomason/packer.nvim", commit = "00ec5adef58c5ff9a07f11f45903b9dbbaa1b422" }
     -- Helpful lua functions
-    use { "nvim-lua/plenary.nvim"}
+    use { "nvim-lua/plenary.nvim", commit = "986ad71ae930c7d96e812734540511b4ca838aa2" }
     -- Automatic pair insertion
     use { "windwp/nvim-autopairs", commit = "fa6876f832ea1b71801c4e481d8feca9a36215ec" }
     -- Code commenting
@@ -47,7 +47,7 @@ return packer.startup(function(use)
     -- Top level bufferline
     use { "akinsho/bufferline.nvim", commit = "c78b3ecf9539a719828bca82fc7ddb9b3ba0c353" }
     -- Better buffer closing
-    use { 'kazhala/close-buffers.nvim'}
+    use { 'kazhala/close-buffers.nvim', commit = "3acbcad1211572342632a6c0151f839e7dead27f" }
     -- Bottom level status line
     use { "nvim-lualine/lualine.nvim", commit = "3362b28f917acc37538b1047f187ff1b5645ecdd" }
     -- Terminal window toggle
@@ -65,7 +65,7 @@ return packer.startup(function(use)
     -- Add surrounding characters
     use { "tpope/vim-surround", commit = "bf3480dc9ae7bea34c78fbba4c65b4548b5b1fea" }
     -- Custom colorscheme
-    use { "tobi2001/darkplus.nvim", commit = "c19c4bc3cb813c15d95ac96b90926913b3d13c20" }
+    use { "tobi2001/darkplus.nvim", commit = "7ca441bb4383d310bace09b2bc08c5ad5acb3b2c" }
     -- Code completion
     use { "hrsh7th/nvim-cmp", commit = "df6734aa018d6feb4d76ba6bda94b1aeac2b378a" }
     use { "hrsh7th/cmp-buffer", commit = "62fc67a2b0205136bc3e312664624ba2ab4a9323" }
@@ -83,7 +83,7 @@ return packer.startup(function(use)
     use { "jose-elias-alvarez/null-ls.nvim", commit = "ff40739e5be6581899b43385997e39eecdbf9465" }
     use { "RRethy/vim-illuminate", commit = "c82e6d04f27a41d7fdcad9be0bce5bb59fcb78e5" }
     -- Telescope
-    use { "nvim-telescope/telescope.nvim", commit = "d96eaa914aab6cfc4adccb34af421bdd496468b0" }
+    use { "nvim-telescope/telescope.nvim", commit = "0.1.0" }
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
     use {'nvim-telescope/telescope-ui-select.nvim' }
 
@@ -102,9 +102,11 @@ return packer.startup(function(use)
     -- Markdown preview
     use({ "iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end, commit = "02cc3874738bc0f86e4b91f09b8a0ac88aef8e96"})
 
-    use { 'pwntester/octo.nvim' }
+    use { 'pwntester/octo.nvim' , commit = "1f6a770a3b2a463cff474df51dc037ae7a6c2920" }
 
-    use { 'ntpeters/vim-better-whitespace'}
+    use { 'ntpeters/vim-better-whitespace', commit = "1b22dc57a2751c7afbc6025a7da39b7c22db635d" }
+
+    use { 'tiagovla/scope.nvim', commit = "2db6d31de8e3a98d2b41c0f0d1f5dc299ee76875"}
 
     -- Automatically set up your configuration after cloning packer.nvim
     if PACKER_BOOTSTRAP then

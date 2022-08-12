@@ -4,7 +4,7 @@ if not octo_status_ok then
 end
 
 octo.setup({
-  default_remote = {"upstream", "origin"}, -- order to try remotes
+  default_remote = {"origin"}, -- order to try remotes
   ssh_aliases = {""},                        -- SSH aliases. e.g. `ssh_aliases = {["github.com-work"] = "github.com"}`
   reaction_viewer_hint_icon = "",         -- marker for user reactions
   user_icon = " ",                        -- user icon
@@ -27,6 +27,18 @@ octo.setup({
       open_in_browser = { lhs = "<C-b>", desc = "open PR in browser" },
       copy_url = { lhs = "<C-y>", desc = "copy url to system clipboard" },
       goto_file = { lhs = "gf", desc = "go to file" },
+    },
+    review_diff = {
+      add_review_comment = { lhs = "<space>ca", desc = "add a new review comment" },
+      add_review_suggestion = { lhs = "<space>sa", desc = "add a new review suggestion" },
+      focus_files = { lhs = "<leader>e", desc = "move focus to changed file panel" },
+      toggle_files = { lhs = "<leader>b", desc = "hide/show changed files panel" },
+      next_thread = { lhs = "]t", desc = "move to next thread" },
+      prev_thread = { lhs = "[t", desc = "move to previous thread" },
+      select_next_entry = { lhs = "]q", desc = "move to previous changed file" },
+      select_prev_entry = { lhs = "[q", desc = "move to next changed file" },
+      close_review_tab = { lhs = "<space>t", desc = "close review tab" },
+      toggle_viewed = { lhs = "<leader><space>", desc = "toggle viewer viewed state" },
     },
   }
 })

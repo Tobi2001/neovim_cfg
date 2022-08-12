@@ -10,4 +10,9 @@ bufferline.setup {
         offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
         separator_style = "slant", -- | "thick" | "thin" | { 'any', 'any' },
     },
+    highlights = {
+        tab_selected = {
+            guifg = '#ff0000',
+        },
+    },
 }
