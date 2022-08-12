@@ -65,7 +65,7 @@ return packer.startup(function(use)
     -- Add surrounding characters
     use { "tpope/vim-surround", commit = "bf3480dc9ae7bea34c78fbba4c65b4548b5b1fea" }
     -- Custom colorscheme
-    use { "tobi2001/darkplus.nvim", commit = "7ca441bb4383d310bace09b2bc08c5ad5acb3b2c" }
+    use { "tobi2001/darkplus.nvim", commit = "2bfebfe554da69acbcaf27c0e284b91e368a6248" }
     -- Code completion
     use { "hrsh7th/nvim-cmp", commit = "df6734aa018d6feb4d76ba6bda94b1aeac2b378a" }
     use { "hrsh7th/cmp-buffer", commit = "62fc67a2b0205136bc3e312664624ba2ab4a9323" }
