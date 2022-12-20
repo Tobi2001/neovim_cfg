@@ -7,14 +7,14 @@ local hide_in_width = function()
     return vim.fn.winwidth(0) > 80
 end
 
-local diagnostics = {
-    "diagnostics",
-    sources = { "nvim_diagnostic" },
-    sections = { "error", "warn" },
-    symbols = { error = " ", warn = " " },
-    colored = false,
-    always_visible = true,
-}
+-- local diagnostics = {
+--     "diagnostics",
+--     sources = { "nvim_diagnostic" },
+--     sections = { "error", "warn" },
+--     symbols = { error = " ", warn = " " },
+--     colored = false,
+--     always_visible = true,
+-- }
 
 local diff = {
     "diff",
@@ -37,6 +37,7 @@ local spaces = function()
     return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
 
+local git_blame = require('gitblame')
 lualine.setup {
     options = {
         globalstatus = true,
@@ -50,7 +51,7 @@ lualine.setup {
     sections = {
         lualine_a = { "mode" },
         lualine_b = {"branch"},
-        lualine_c = { diagnostics },
+        lualine_c = { git_blame.get_current_blame_text },
         lualine_x = { diff, spaces, "encoding", filetype },
         lualine_y = { location },
         lualine_z = { "progress" },

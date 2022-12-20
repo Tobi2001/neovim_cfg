@@ -8,7 +8,8 @@ local servers = {
     "pyright",
     "bashls",
     "clangd",
-    "html"
+    "html",
+    "marksman"
 }
 
 lsp_installer.setup()

@@ -114,6 +114,7 @@ cmp.setup({
         { name = "buffer" },
         { name = "path" },
         { name = "nvim_lsp_signature_help" },
+        { name = "bazel" },
     },
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,

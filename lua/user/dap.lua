@@ -11,7 +11,7 @@ end
 dap.adapters.cppdbg = {
     id = 'cppdbg',
     type = 'executable',
-    command = '',
+    command = '/home/tobias/.apps/vscode-cpptools-1.11.4/extension/debugAdapters/bin/OpenDebugAD7',
 }
 dap.configurations.cpp = {
     {
@@ -23,7 +23,7 @@ dap.configurations.cpp = {
             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
         end,
         --cwd = '${workspaceFolder}',
-        cwd = '',
+        cwd = '/home/tobias/workspace/project',
         stopOnEntry = false,
     },
     {
@@ -34,7 +34,7 @@ dap.configurations.cpp = {
     miDebuggerServerAddress = 'localhost:1234',
     miDebuggerPath = '/usr/bin/gdb',
     miDebuggerArgs = '--nh',
-    cwd = '',
+    cwd = '/home/tobias/workspace/project',
     program = function()
       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
     end,

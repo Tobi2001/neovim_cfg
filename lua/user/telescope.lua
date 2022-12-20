@@ -11,7 +11,7 @@ telescope.setup {
         prompt_prefix = " ",
         selection_caret = " ",
         path_display = { "truncate" },
-        file_ignore_patterns = { ".git/", "node_modules" },
+        file_ignore_patterns = { ".git/", "node_modules", "bazel-bin", "bazel-out", "bazel-project", "bazel-testlogs"},
         layout_strategy='horizontal',
         layout_config = {
             horizontal = {

@@ -4,3 +4,71 @@ local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
   return
 end
+
+-- local Shade = require("nightfox.lib.shade")
+-- local palettes = {
+--   all = {
+--       bg0 = "#252525",
+--       bg1 = "#1E1E1E",
+--       bg2 = "#313131",
+--       bg3 = "#333333",
+--       bg4 = "#444444",
+--
+--       fg1 = "#d4d4d4",
+--       fg3 = "#808080",
+--
+--       comment = "#808080",
+--
+--       black   = Shade.new("#393b44", 0.15, -0.15),
+--       blue = Shade.new("#87d7ff", 0.15, -0.15),
+--       orange = Shade.new("#ffaf5f", 0.15, -0.15),
+--       green = Shade.new("#87d75f", 0.15, -0.15),
+--       magenta = Shade.new("#c586c0", 0.15, -0.15),
+--       pink = Shade.new("#ff005f", 0.15, -0.15),
+--       red = Shade.new("#ff8787", 0.15, -0.15),
+--       white = Shade.new("#d4d4d4", 0.15, -0.15),
+--       yellow = Shade.new("#ffd75f", 0.15, -0.15),
+--   },
+-- }
+--
+-- local specs = {
+--   all = {
+--       syntax = {
+--         builtin0 = "white",
+--         builtin1 = "red",
+--         conditional = "blue",
+--         field = "magenta",
+--         func = "green",
+--         keyword = "blue",
+--         preproc = "pink",
+--         string = "yellow",
+--         type = "red",
+--       },
+--   },
+-- }
+--
+-- local groups = {
+--   all = {
+--       TSConstructor = { link = "Function" },
+--       TSFuncBuiltin = { link = "Function" },
+--       TSMethod = { link = "Function" },
+--
+--       TelescopeBorder = { fg = palettes.all.blue },
+--       TelescopeSelection = { fg = palettes.all.blue },
+--       TelescopeMatching = { fg = palettes.all.yellow, style = "bold" }
+--   },
+-- }
+--
+-- require("nightfox").setup({
+--     options = {
+--     styles = {
+--       comments = "italic",
+--       conditionals = "bold",
+--       keywords = "bold",
+--     }
+--   },
+--     palettes = palettes, specs = specs, groups = groups
+-- })
+--
+-- -- setup must be called before loading
+-- vim.cmd("colorscheme nightfox")

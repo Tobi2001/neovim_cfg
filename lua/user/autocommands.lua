@@ -39,3 +39,12 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     pattern = { "*.cpp", "*.h", "*.hpp" },
     callback =function() vim.lsp.buf.formatting_sync() end,
 })
+
+-- Disable neoscroll keymappings in nvim-tree
+vim.api.nvim_create_autocmd({ "FileType" }, {
+    pattern = { "NvimTree" },
+    callback = function()
+        vim.keymap.set("n", "<C-u>", "<C-u>", { buffer = true })
+        vim.keymap.set("n", "<C-d>", "<C-d>", { buffer = true })
+    end,
+})

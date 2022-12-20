@@ -35,7 +35,7 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Press jk fast to enter
-keymap("i", "jk", "<ESC>", opts)
+-- keymap("i", "jk", "<ESC>", opts)
 
 
 
@@ -70,3 +70,24 @@ keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
 keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
+
+-- Trouble
+keymap("n", "<leader>xx", "<cmd>TroubleToggle<cr>", {silent = true, noremap = true})
+keymap("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", {silent = true, noremap = true})
+keymap("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", {silent = true, noremap = true})
+keymap("n", "<leader>xt", "<cmd>TodoTrouble<cr>", {silent = true, noremap = true})
+keymap("n", "gr", "<cmd>TroubleToggle lsp_references<cr>", {silent = true, noremap = true})
+
+-- Diffview
+keymap("n", "<leader>rd", "<cmd>DiffviewOpen<cr>", {silent = true, noremap = true})
+keymap("n", "<leader>rh", "<cmd>DiffviewFileHistory %<cr>", {silent = true, noremap = true})
+keymap("n", "<leader>rc", "<cmd>DiffviewClose<cr>", {silent = true, noremap = true})
+
+-- Yanky
+keymap({"n","x"}, "p", "<Plug>(YankyPutAfter)")
+keymap({"n","x"}, "P", "<Plug>(YankyPutBefore)")
+keymap({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
+keymap({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
+keymap("n", "<c-n>", "<Plug>(YankyCycleForward)")
+keymap("n", "<c-p>", "<Plug>(YankyCycleBackward)")
+keymap({"n","x"}, "y", "<Plug>(YankyYank)")

@@ -4,14 +4,19 @@ if not null_ls_status_ok then
 end
 
 local formatting = null_ls.builtins.formatting
+local diagnostics = null_ls.builtins.diagnostics
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup {
     debug = false,
     sources = {
---        formatting.uncrustify.with({
---            extra_args = { "-c", "/home/tobias/.config/uncrustify/code_style.cfg" }
---        }),
+        diagnostics.shellcheck,
+        diagnostics.gitlint,
+        formatting.black,
+        formatting.isort,
+        formatting.beautysh,
+        -- diagnostics.pylint.with({
+        -- })
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then

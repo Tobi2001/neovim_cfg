@@ -47,7 +47,7 @@ return packer.startup(function(use)
     -- Top level bufferline
     use { "akinsho/bufferline.nvim", commit = "c78b3ecf9539a719828bca82fc7ddb9b3ba0c353" }
     -- Better buffer closing
-    use { 'kazhala/close-buffers.nvim', commit = "3acbcad1211572342632a6c0151f839e7dead27f" }
+    use { "kazhala/close-buffers.nvim", commit = "3acbcad1211572342632a6c0151f839e7dead27f" }
     -- Bottom level status line
     use { "nvim-lualine/lualine.nvim", commit = "3362b28f917acc37538b1047f187ff1b5645ecdd" }
     -- Terminal window toggle
@@ -74,19 +74,20 @@ return packer.startup(function(use)
     use { "hrsh7th/cmp-nvim-lsp", commit = "affe808a5c56b71630f17aa7c38e15c59fd648a8" }
     use { "hrsh7th/cmp-nvim-lua", commit = "d276254e7198ab7d00f117e88e223b4bd8c02d21" }
     use { "hrsh7th/cmp-nvim-lsp-signature-help", commit = "007dd2740d9b70f2688db01a39d6d25b7169cd57" }
+    use { "alexander-born/cmp-bazel", commit = "00d7432074ca2e8556eb0c6af7567fe9fd65495d" }
     -- Code snippets
     use { "L3MON4D3/LuaSnip", commit = "79b2019c68a2ff5ae4d732d50746c901dd45603a" }
     use { "rafamadriz/friendly-snippets", commit = "d27a83a363e61009278b6598703a763ce9c8e617" }
     -- LSP
     use { "neovim/nvim-lspconfig", commit = "148c99bd09b44cf3605151a06869f6b4d4c24455" }
     use { "williamboman/nvim-lsp-installer", commit = "e9f13d7acaa60aff91c58b923002228668c8c9e6" }
-    use { "jose-elias-alvarez/null-ls.nvim", commit = "ff40739e5be6581899b43385997e39eecdbf9465" }
+    use { "jose-elias-alvarez/null-ls.nvim", commit = "4342844954e89bca0e93a8057538000b7a9b737d" }
     use { "RRethy/vim-illuminate", commit = "c82e6d04f27a41d7fdcad9be0bce5bb59fcb78e5" }
     -- Telescope
     use { "nvim-telescope/telescope.nvim", commit = "0.1.0" }
-    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
-    use {'nvim-telescope/telescope-ui-select.nvim' }
-
+    use { "nvim-telescope/telescope-fzf-native.nvim", commit = "65c0ee3d4bb9cb696e262bca1ea5e9af3938fc90",
+            run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+    use { "nvim-telescope/telescope-ui-select.nvim", commit = "62ea5e58c7bbe191297b983a9e7e89420f581369" }
 
     -- Treesitter
     use { "nvim-treesitter/nvim-treesitter", commit = "518e27589c0463af15463c9d675c65e464efc2fe" }
@@ -102,11 +103,32 @@ return packer.startup(function(use)
     -- Markdown preview
     use({ "iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end, commit = "02cc3874738bc0f86e4b91f09b8a0ac88aef8e96"})
 
-    use { 'pwntester/octo.nvim' , commit = "1f6a770a3b2a463cff474df51dc037ae7a6c2920" }
+    use { "ntpeters/vim-better-whitespace", commit = "1b22dc57a2751c7afbc6025a7da39b7c22db635d" }
 
-    use { 'ntpeters/vim-better-whitespace', commit = "1b22dc57a2751c7afbc6025a7da39b7c22db635d" }
+    use { "tiagovla/scope.nvim", commit = "2db6d31de8e3a98d2b41c0f0d1f5dc299ee76875"}
 
-    use { 'tiagovla/scope.nvim', commit = "2db6d31de8e3a98d2b41c0f0d1f5dc299ee76875"}
+    use { "f-person/git-blame.nvim", commit = "65292dfcd80897a5f24962096b8df2bb5bb65e15"}
+
+    use { "karb94/neoscroll.nvim", commit = "54c5c419f6ee2b35557b3a6a7d631724234ba97a"}
+
+    use { "chentoast/marks.nvim", commit = "b27cbb78e9082229590b396d3ae4fe07f1aeafe0" }
+
+    use { "folke/trouble.nvim", commit = "929315ea5f146f1ce0e784c76c943ece6f36d786" }
+
+    use { "andrewferrier/debugprint.nvim", commit = "2b8a0dc2582bcc590748239615c2baac339d3812" }
+
+    use { "sindrets/diffview.nvim", commit = "bfab5921fcdf2a67ab5e03e2aa3fc64a5284786d" }
+
+    use { "luukvbaal/stabilize.nvim", commit = "f7c4d93d6822df1770a90b7fdb46f6df5c94052e" }
+
+    use { "folke/todo-comments.nvim", commit = "02eb3019786d9083b93ab9457761899680c6f3ec" }
+
+    use { "edluffy/specs.nvim", commit = "2743e412bbe21c9d73954c403d01e8de7377890d" }
+
+    use { "gbprod/yanky.nvim", commit = "6c39c8373e35da4a200c71f8eb0ec68df9716702" }
+
+    use { "max397574/better-escape.nvim" }
+    use {"EdenEast/nightfox.nvim", commit = "59c3dbcec362eff7794f1cb576d56fd8a3f2c8bb"}
 
     -- Automatically set up your configuration after cloning packer.nvim
     if PACKER_BOOTSTRAP then
