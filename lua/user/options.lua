@@ -41,6 +41,8 @@ vim.opt.showbreak = "+++"                       -- line break marker
 vim.opt.whichwrap:append("<,>,[,],h,l")         -- Wrap chars
 vim.opt.fillchars.eob=" "                       -- char markers for empty lines
 vim.opt.iskeyword:append("-")                   -- add dash to word chars list
+vim.opt.formatoptions:remove({ "c", "r", "o" }) -- This is a sequence of letters which describes how automatic formatting is to be done
+vim.opt.linebreak = true
 
 -- Indentation
 vim.opt.smartindent = true                      -- make indenting smarter again

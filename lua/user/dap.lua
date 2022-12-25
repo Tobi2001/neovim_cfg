@@ -8,41 +8,35 @@ if not dap_ui_status_ok then
     return
 end
 
-dap.adapters.cppdbg = {
-    id = 'cppdbg',
-    type = 'executable',
-    command = '/home/tobias/.apps/vscode-cpptools-1.11.4/extension/debugAdapters/bin/OpenDebugAD7',
-}
-dap.configurations.cpp = {
-    {
-        name = "Launch file",
-        type = "cppdbg",
-        request = "launch",
-        miDebuggerArgs = '--nh',
-        program = function()
-            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-        end,
-        --cwd = '${workspaceFolder}',
-        cwd = '/home/tobias/workspace/project',
-        stopOnEntry = false,
-    },
-    {
-    name = 'Attach to gdbserver :1234',
-    type = 'cppdbg',
-    request = 'launch',
-    MIMode = 'gdb',
-    miDebuggerServerAddress = 'localhost:1234',
-    miDebuggerPath = '/usr/bin/gdb',
-    miDebuggerArgs = '--nh',
-    cwd = '/home/tobias/workspace/project',
-    program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-    end,
-  },
-}
+local dap_install_status_ok, dap_install = pcall(require, "dap-install")
+if not dap_install_status_ok then
+    return
+end
 
-dapui.setup( {
+dap_install.setup({})
+
+dap_install.config("python", {})
+dap_install.config("ccppr_vsc", {
+    adapters = {
+        id = 'cppdbg',
+    }
+})
+
+dapui.setup({
     expand_lines = true,
+    controls = {
+        enabled = false,
+    },
+    icons = { expanded = "", collapsed = "", circular = "" },
+    mappings = {
+        -- Use a table to apply multiple mappings
+        expand = { "<CR>", "<2-LeftMouse>" },
+        open = "o",
+        remove = "d",
+        edit = "e",
+        repl = "r",
+        toggle = "t",
+    },
     layouts = {
         {
             elements = {

@@ -5,14 +5,15 @@ end
 
 bufferline.setup {
     options = {
-        close_command = "lua require('close_buffers').delete({ type = %d })", -- can be a string | function, see "Mouse actions"
-        right_mouse_command = "lua require('close_buffers').delete({ type = %d })", -- can be a string | function, see "Mouse actions"
+        close_command = "lua require('close_buffers').delete({ type = %d })",
+        right_mouse_command = "lua require('close_buffers').delete({ type = %d })",
         offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
-        separator_style = "slant", -- | "thick" | "thin" | { 'any', 'any' },
+        separator_style = "slant",
     },
     highlights = {
         tab_selected = {
-            guifg = '#ff0000',
+            fg = { attribute = "fg", highlight = "Normal" },
+            bg = { attribute = "bg", highlight = "Normal" },
         },
     },
 }

@@ -51,8 +51,8 @@ keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
 -- Comment
-keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
-keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
+keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
+keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>')
 
 -- Tmux navigation
 keymap("n", "<C-h>", "<cmd>lua require'nvim-tmux-navigation'.NvimTmuxNavigateLeft()<cr>", opts)
@@ -91,3 +91,8 @@ keymap({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
 keymap("n", "<c-n>", "<Plug>(YankyCycleForward)")
 keymap("n", "<c-p>", "<Plug>(YankyCycleBackward)")
 keymap({"n","x"}, "y", "<Plug>(YankyYank)")
+
+-- Illuminate
+keymap('n', '<a-n>', '<cmd>lua require"illuminate".next_reference{wrap=true}<cr>', {silent = true, noremap=true})
+keymap('n', '<a-p>', '<cmd>lua require"illuminate".next_reference{reverse=true,wrap=true}<cr>', {silent = true, noremap=true})
+

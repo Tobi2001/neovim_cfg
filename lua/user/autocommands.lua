@@ -1,6 +1,6 @@
 -- Use 'q' to quit from common plugins
 vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "lir" },
+    pattern = { "qf", "help", "man", "lspinfo", "spectre_panel" },
     callback = function()
         vim.cmd [[
         nnoremap <silent> <buffer> q :close<CR>
@@ -19,13 +19,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 vim.cmd "autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif"
-
--- Fixes Autocomment
-vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-    callback = function()
-        vim.cmd "set formatoptions-=cro"
-    end,
-})
 
 -- Highlight Yanked Text
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
@@ -47,4 +40,19 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
         vim.keymap.set("n", "<C-u>", "<C-u>", { buffer = true })
         vim.keymap.set("n", "<C-d>", "<C-d>", { buffer = true })
     end,
+})
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+	callback = function()
+		vim.cmd("hi link illuminatedWord LspReferenceText")
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+	callback = function()
+	local line_count = vim.api.nvim_buf_line_count(0)
+		if line_count >= 5000 then
+			vim.cmd("IlluminatePauseBuf")
+		end
+	end,
 })
