@@ -7,21 +7,6 @@ local opts = { silent = true }
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
-
--- Normal --
--- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
-
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
@@ -36,21 +21,25 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 
 -- Close buffers
-keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
+keymap("n", "<S-q>", "<cmd>BDelete! this<CR>", opts)
 
 -- Better paste
 keymap("v", "p", '"_dP', opts)
-
--- Insert --
--- Press jk fast to enter
-keymap("i", "jk", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
+
+
+
+-------------
 -- Plugins --
+-------------
+
+-- Better whitespace
+keymap("n", "<leader>t", "<cmd>StripWhitespace<cr>", opts)
 
 -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
@@ -81,3 +70,35 @@ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
 -- Lsp
 keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+
+-- Illuminate
+keymap("n", "<M-n>", "<cmd>lua require'illuminate'.goto_next_reference({wrap=true})<cr>", opts)
+keymap("n", "<M-p>", "<cmd>lua require'illuminate'.goto_next_reference({reverse=true,wrap=true})<cr>", opts)
+
+-- Leap
+keymap({ "n", "v" }, "s", function()
+    local current_window = vim.fn.win_getid()
+    require("leap").leap { target_windows = { current_window } }
+end)
+
+-- Trouble
+keymap("n", "<leader>xx", "<cmd>TroubleToggle<cr>", {silent = true, noremap = true})
+keymap("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", {silent = true, noremap = true})
+keymap("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", {silent = true, noremap = true})
+keymap("n", "<leader>xt", "<cmd>TodoTrouble<cr>", {silent = true, noremap = true})
+keymap("n", "gr", "<cmd>TroubleToggle lsp_references<cr>", {silent = true, noremap = true})
+
+-- Yanky
+keymap({"n","x"}, "p", "<Plug>(YankyPutAfter)")
+keymap({"n","x"}, "P", "<Plug>(YankyPutBefore)")
+keymap({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
+keymap({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
+keymap("n", "<c-n>", "<Plug>(YankyCycleForward)")
+keymap("n", "<c-p>", "<Plug>(YankyCycleBackward)")
+keymap({"n","x"}, "y", "<Plug>(YankyYank)")
+
+-- Tmux navigation
+keymap("n", "<C-h>", "<cmd>lua require'nvim-tmux-navigation'.NvimTmuxNavigateLeft()<cr>", opts)
+keymap("n", "<C-j>", "<cmd>lua require'nvim-tmux-navigation'.NvimTmuxNavigateDown()<cr>", opts)
+keymap("n", "<C-k>", "<cmd>lua require'nvim-tmux-navigation'.NvimTmuxNavigateUp()<cr>", opts)
+keymap("n", "<C-l>", "<cmd>lua require'nvim-tmux-navigation'.NvimTmuxNavigateRight()<cr>", opts)

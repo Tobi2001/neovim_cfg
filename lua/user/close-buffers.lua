@@ -1,10 +1,10 @@
 local M = {
-    "folke/which-key.nvim",
+    "kazhala/close-buffers.nvim",
     event = "VeryLazy",
 }
 
 function M.config()
-    require("which-key").setup {}
+    require("close_buffers").setup {}
 end
 
 return M

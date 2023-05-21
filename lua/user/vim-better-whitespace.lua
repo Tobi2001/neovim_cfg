@@ -1,10 +1,9 @@
 local M = {
-    "folke/which-key.nvim",
+    "ntpeters/vim-better-whitespace",
     event = "VeryLazy",
 }
 
 function M.config()
-    require("which-key").setup {}
 end
 
 return M

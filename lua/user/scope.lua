@@ -1,10 +1,10 @@
 local M = {
-    "folke/which-key.nvim",
+    "tiagovla/scope.nvim",
     event = "VeryLazy",
 }
 
 function M.config()
-    require("which-key").setup {}
+    require("scope").setup {}
 end
 
 return M
