@@ -28,10 +28,6 @@ function M.config()
             enable = true,
         },
         indent = { enable = false, disable = { "python", "css" } },
-        context_commentstring = {
-            enable = true,
-            enable_autocmd = false,
-        },
     }
 end
 

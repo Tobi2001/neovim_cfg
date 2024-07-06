@@ -41,16 +41,6 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     end,
 })
 
--- Disable illuminate for long files
-vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-    callback = function()
-        local line_count = vim.api.nvim_buf_line_count(0)
-        if line_count >= 5000 then
-            vim.cmd "IlluminatePauseBuf"
-        end
-    end,
-})
-
 -- Autoformat on write
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     pattern = { "*.cpp", "*.h", "*.hpp" },

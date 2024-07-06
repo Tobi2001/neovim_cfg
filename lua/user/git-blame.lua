@@ -4,10 +4,12 @@ local M = {
 }
 
 function M.config()
-    vim.g.gitblame_enabled = true
-    vim.g.gitblame_display_virtual_text = true
-    vim.g.gitblame_message_template = "<author> • <date>"
-    vim.g.gitblame_date_format = "%r"
+    require('gitblame').setup {
+        enabled = true,
+        display_virtual_text = false,
+        message_template = "<author> • <date>",
+        date_format = "%r",
+    }
 end
 
 return M

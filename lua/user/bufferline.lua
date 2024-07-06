@@ -1,6 +1,6 @@
 local M = {
     "akinsho/bufferline.nvim",
-    event = { "BufReadPre", "BufAdd", "BufNew", "BufReadPost" },
+    lazy = false,
     dependencies = {
         {
             "kazhala/close-buffers.nvim",
