@@ -82,11 +82,9 @@ keymap({ "n", "v" }, "s", function()
 end)
 
 -- Trouble
-keymap("n", "<leader>xx", "<cmd>TroubleToggle<cr>", {silent = true, noremap = true})
-keymap("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", {silent = true, noremap = true})
-keymap("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", {silent = true, noremap = true})
-keymap("n", "<leader>xt", "<cmd>TodoTrouble<cr>", {silent = true, noremap = true})
-keymap("n", "gr", "<cmd>TroubleToggle lsp_references<cr>", {silent = true, noremap = true})
+keymap("n", "<leader>xx", "<cmd>Trouble diagnostics toggle focus=true<cr>", {silent = true, noremap = true})
+keymap("n", "<leader>xt", "<cmd>Trouble todo toggle focus=true<cr>", {silent = true, noremap = true})
+keymap("n", "gr", "<cmd>Trouble lsp_references toggle focus=true<cr>", {silent = true, noremap = true})
 
 -- Yanky
 keymap({"n","x"}, "p", "<Plug>(YankyPutAfter)")
