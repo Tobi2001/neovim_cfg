@@ -28,9 +28,16 @@ function M.config()
         on_attach = on_attach,
         update_focused_file = {
             enable = true,
-            update_cwd = true,
+            update_cwd = false,
         },
+        actions = {
+            change_dir = {
+                global = true,
+            },
+        },
+        sync_root_with_cwd = true,
         renderer = {
+            root_folder_modifier = ":t",
             icons = {
                 glyphs = {
                     default = "",
@@ -61,7 +68,7 @@ function M.config()
             enable = true,
             show_on_dirs = true,
             icons = {
-                hint = "",
+                hint = "󰌵",
                 info = "",
                 warning = "",
                 error = "",

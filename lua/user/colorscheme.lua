@@ -76,6 +76,11 @@ function M.config()
             ["@function.builtin"] = { link = "Function" },
             ["@storageclass.cpp"] = { link = "Keyword" },
             ["@parameter"] = { fg = palettes.all.white.bright, style = "italic" },
+            ["@keyword.doxygen"] = { link = "Comment" },
+            ["@variable.parameter.doxygen"] = { link = "Comment" },
+            ["@punctuation.bracket.doxygen"] = { link = "Comment" },
+            ["@punctuation.delimiter.doxygen"] = { link = "Comment" },
+            ["@keyword.modifier.doxygen"] = { link = "Comment" },
 
             -- Telescope
             TelescopeBorder = { fg = palettes.all.blue },

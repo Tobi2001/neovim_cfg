@@ -6,11 +6,12 @@ local M = {
 function M.config()
     require('gitsigns').setup {
         signs = {
-            add = { text = "▎", },
-            change = { text = "▎", },
-            delete = { text = "契", },
-            topdelete = { text = "契", },
-            changedelete = { text = "▎", },
+            add = { text = "┃", },
+            change = { text = "┃", },
+            delete = { text = "_", },
+            topdelete = { text = "‾", },
+            changedelete = { text = '~' },
+            untracked    = { text = '┆' },
         },
         signcolumn = true,
         watch_gitdir = {
