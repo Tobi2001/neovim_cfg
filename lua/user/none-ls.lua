@@ -18,12 +18,18 @@ function M.config()
             --     extra_filetypes = { "toml" },
             --     extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
             -- },
-            -- formatting.black.with { extra_args = { "--fast" } },
-            -- formatting.stylua,
+            formatting.black,
+            formatting.isort,
             -- formatting.google_java_format,
             -- diagnostics.flake8,
             diagnostics.buildifier,
             formatting.buildifier,
+            formatting.clang_format.with({
+                command = "/usr/bin/clang-format-16",
+            }),
+            formatting.shfmt.with({
+                extra_args = { "-i", "4", "-fn" },
+            }),
         },
     }
 end

@@ -91,7 +91,7 @@ function M.config()
             LspReferenceText = { bg = palettes.all.bg3 },
             LspReferenceWrite = { bg = palettes.all.bg3 },
             LspReferenceRead = { bg = palettes.all.bg3 },
-            ["@lsp.typemod.variable.globalScope.cpp"] = { fg = palettes.all.pink.dim },
+            -- ["@lsp.typemod.variable.globalScope.cpp"] = { fg = palettes.all.pink.dim },
             ["@lsp.type.operator.cpp"] = { link = "Operator" },
             ["@lsp.mod.constructorOrDestructor.cpp"] = { link = "Function" },
 

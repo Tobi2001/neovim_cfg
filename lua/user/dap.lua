@@ -25,6 +25,28 @@ function M.config()
     dap.listeners.before.disconnect["dapui_config"] = function()
         dapui.close()
     end
+
+    dap.adapters.python = function(cb, config)
+        if config.request == 'attach' then
+            local port = '5724'
+            local host = '127.0.0.1'
+            cb({
+                type = 'server',
+                port = assert(port, '`connect.port` is required for a python `attach` configuration'),
+                host = host,
+                options = {
+                    source_filetype = 'python',
+                },
+            })
+        end
+    end
+    dap.configurations.python = {
+        {
+            type = 'python',
+            request = 'attach',
+            name = "Attach to debugpy",
+        }
+    }
 end
 
 return M

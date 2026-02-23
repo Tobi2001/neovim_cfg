@@ -45,7 +45,29 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     pattern = { "*.cpp", "*.h", "*.hpp" },
     callback = function()
-        vim.lsp.buf.format()
+        vim.lsp.buf.format({
+            filter = function(client)
+                return client.name == "null-ls"
+            end,
+        })
+    end,
+})
+
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+    pattern = { "*.cpp", "*.h", "*.hpp" },
+    callback = function()
+        vim.keymap.set("n", "<leader>lf",
+            "<cmd>lua vim.lsp.buf.format{ async = true, filter = function(client) return client.name == 'null-ls' end,  }<cr>",
+            { buffer = true })
+    end,
+})
+
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+    pattern = { "*.sh", "*.bash" },
+    callback = function()
+        vim.keymap.set("n", "<leader>lf",
+            "<cmd>lua vim.lsp.buf.format{ async = true, filter = function(client) return client.name == 'null-ls' end,  }<cr>",
+            { buffer = true })
     end,
 })
 

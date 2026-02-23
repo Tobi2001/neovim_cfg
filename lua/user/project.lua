@@ -19,6 +19,8 @@ function M.config()
 
         -- patterns used to detect root dir, when **"pattern"** is in detection_methods
         patterns = { ".git", "Makefile", "package.json" },
+
+        datapath = vim.fn.stdpath("config") .. '/config/'
     }
 
     local telescope = require "telescope"
