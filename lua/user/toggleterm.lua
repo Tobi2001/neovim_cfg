@@ -1,6 +1,7 @@
 local M = {
     "akinsho/toggleterm.nvim",
     event = "VeryLazy",
+    enabled = false
 }
 
 function M.config()

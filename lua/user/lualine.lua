@@ -3,6 +3,7 @@ local M = {
     event = { "VimEnter", "InsertEnter", "BufReadPre", "BufAdd", "BufNew", "BufReadPost" },
     dependencies = {
         {
+            "lalitmee/codecompanion-spinners.nvim",
             "f-person/git-blame.nvim",
             event = "VeryLazy",
         },
@@ -55,8 +56,8 @@ function M.config()
             lualine_a = { "mode" },
             lualine_b = { "branch" },
             lualine_c = { git_blame.get_current_blame_text },
-            lualine_x = { diff, spaces, "encoding", filetype },
-            lualine_y = { location },
+            lualine_x = { require('codecompanion._extensions.spinner.styles.lualine').get_lualine_component(), diff, "encoding", filetype },
+            lualine_y = { spaces, location },
             lualine_z = { "progress" },
         },
     }

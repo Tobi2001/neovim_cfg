@@ -31,6 +31,10 @@ keymap("v", "p", '"_dP', opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
+-- Exit terminal mode
+keymap('n', '<F1>', '<Nop>')
+keymap('i', '<F1>', '<Nop>')
+keymap('t', '<F1>', '<C-\\><C-n>')
 
 
 
@@ -70,6 +74,21 @@ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
 -- Lsp
 keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+keymap("n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+keymap("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+keymap("n", "<leader>li", "<cmd>LspInfo<cr>", opts)
+keymap("n", "<leader>lI", "<cmd>Mason<cr>", opts)
+keymap("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+keymap("n", "<leader>lj", "<cmd>lua vim.diagnostic.jump({count = 1, float = true})<cr>", opts)
+keymap("n", "<leader>lk", "<cmd>lua vim.diagnostic.jump({count = -1, float = true})<cr>", opts)
+keymap("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+keymap("n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+keymap("n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+
 
 -- Illuminate
 keymap("n", "<M-n>", "<cmd>lua require'illuminate'.goto_next_reference({wrap=true})<cr>", opts)
@@ -82,21 +101,30 @@ keymap({ "n", "v" }, "s", function()
 end)
 
 -- Trouble
-keymap("n", "<leader>xx", "<cmd>Trouble diagnostics toggle focus=true<cr>", {silent = true, noremap = true})
-keymap("n", "<leader>xt", "<cmd>Trouble todo toggle focus=true<cr>", {silent = true, noremap = true})
-keymap("n", "gr", "<cmd>Trouble lsp_references toggle focus=true<cr>", {silent = true, noremap = true})
+keymap("n", "<leader>xx", "<cmd>Trouble diagnostics toggle focus=true<cr>", { silent = true, noremap = true })
+keymap("n", "<leader>xt", "<cmd>Trouble todo toggle focus=true<cr>", { silent = true, noremap = true })
+keymap("n", "gr", "<cmd>Trouble lsp_references toggle focus=true<cr>", { silent = true, noremap = true })
 
 -- Yanky
-keymap({"n","x"}, "p", "<Plug>(YankyPutAfter)")
-keymap({"n","x"}, "P", "<Plug>(YankyPutBefore)")
-keymap({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
-keymap({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
+keymap({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
+keymap({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
+keymap({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
+keymap({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
 keymap("n", "<c-n>", "<Plug>(YankyCycleForward)")
 keymap("n", "<c-p>", "<Plug>(YankyCycleBackward)")
-keymap({"n","x"}, "y", "<Plug>(YankyYank)")
+keymap({ "n", "x" }, "y", "<Plug>(YankyYank)")
 
 -- Tmux navigation
 keymap("n", "<C-h>", "<cmd>lua require'nvim-tmux-navigation'.NvimTmuxNavigateLeft()<cr>", opts)
 keymap("n", "<C-j>", "<cmd>lua require'nvim-tmux-navigation'.NvimTmuxNavigateDown()<cr>", opts)
 keymap("n", "<C-k>", "<cmd>lua require'nvim-tmux-navigation'.NvimTmuxNavigateUp()<cr>", opts)
 keymap("n", "<C-l>", "<cmd>lua require'nvim-tmux-navigation'.NvimTmuxNavigateRight()<cr>", opts)
+
+-- Codecompanion
+keymap("n", "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", opts)
+keymap("v", "<leader>ca", "<cmd>CodeCompanionChat Add<cr>", opts)
+keymap("n", "<leader>cu", "<cmd>CodeCompanionActions<cr>", opts)
+
+-- Copilot
+-- vim.keymap.set("i", "<C-;>", "copilot#Accept('<CR>')", { silent = true, expr = true })
+vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })

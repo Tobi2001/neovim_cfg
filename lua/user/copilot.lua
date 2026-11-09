@@ -1,12 +1,13 @@
 local M = {
     "github/copilot.vim",
-    event = "BufRead",
-    enabled = false,
+    lazy = false,
+    enabled = true,
 }
 
 function M.config()
-    vim.b.copilot_enabled = false
-    vim.g.copilot_no_maps = true
+    vim.b.copilot_enabled = true
+    vim.g.copilot_no_tab_map = true
 end
 
 return M
+

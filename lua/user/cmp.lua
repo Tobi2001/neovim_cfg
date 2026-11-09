@@ -83,8 +83,8 @@ function M.config()
             end,
         },
         mapping = cmp.mapping.preset.insert {
-            ["<C-k>"] = cmp.mapping.select_prev_item(),
-            ["<C-j>"] = cmp.mapping.select_next_item(),
+            -- ["<C-k>"] = cmp.mapping.select_prev_item(),
+            -- ["<C-j>"] = cmp.mapping.select_next_item(),
             ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
             ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
             ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
@@ -159,6 +159,23 @@ function M.config()
             ghost_text = false,
         },
     }
+    -- Setup for `/` and `?` (search) cmdline
+    cmp.setup.cmdline({ "/", "?" }, {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+            { name = "buffer" }
+        }
+    })
+
+    -- Setup for `:` (command) cmdline
+    cmp.setup.cmdline(":", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+            { name = "path" }
+        }, {
+            { name = "cmdline" }
+        })
+    })
 end
 
 return M

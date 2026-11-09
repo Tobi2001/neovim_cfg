@@ -57,3 +57,5 @@ vim.opt.tabstop = 4        -- number of spaces to insert for a tab
 vim.opt.smartcase = true  -- smart case
 vim.opt.hlsearch = true   -- highlight all matches on previous search pattern
 vim.opt.ignorecase = true -- ignore case in search patterns
+
+vim.o.winborder = 'rounded'
